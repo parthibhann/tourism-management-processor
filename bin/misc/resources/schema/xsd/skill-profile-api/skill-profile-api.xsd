@@ -1,0 +1,39 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://skill-tracker.com/skill-profile-api"
+		   xmlns:tns="http://skill-tracker.com/skill-profile-api"
+		   xmlns:tm="http://skill-tracker.com/skill-profile-api-models"
+		   xmlns:tc="http://skill-tracker.com/skill-profile-api-common"
+		   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+  		   jaxb:version="2.1"
+		   elementFormDefault="qualified" >
+		   
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+		      <jaxb:package name="com.skill.profile.api.jaxb.types"/>
+		    </jaxb:schemaBindings>
+		</xs:appinfo>
+		<xs:documentation>
+			skill-profile-api service request response details.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:import schemaLocation="skill-profile-api-common.xsd" namespace="http://skill-tracker.com/skill-profile-api-common"/>
+	<xs:import schemaLocation="skill-profile-api-models.xsd" namespace="http://skill-tracker.com/skill-profile-api-models"/>
+	
+	<xs:element name="SkillProfileRequest" type="tns:skillProfileRequest" />
+	<xs:complexType name="skillProfileRequest">
+		<xs:sequence>
+			<xs:element name="skillProfile" type="tm:SkillProfileType" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="SkillProfileResponse" type="tns:skillProfileResponse" />
+	<xs:complexType name="skillProfileResponse">
+		<xs:sequence>
+			<xs:element name="skillProfiles" type="tm:SkillProfileType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element ref="tc:response"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

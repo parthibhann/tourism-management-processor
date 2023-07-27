@@ -1,0 +1,40 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://skill-tracker.com/skill-tracker-api"
+		   xmlns:tns="http://skill-tracker.com/skill-tracker-api"
+		   xmlns:tm="http://skill-tracker.com/skill-tracker-api-models"
+		   xmlns:tc="http://skill-tracker.com/skill-tracker-api-common"
+		   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+  		   jaxb:version="2.1"
+		   elementFormDefault="qualified" >
+		   
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+		      <jaxb:package name="com.skill.tracker.api.jaxb.types"/>
+		    </jaxb:schemaBindings>
+		</xs:appinfo>
+		<xs:documentation>
+			skill-tracker-api service request response details.
+		</xs:documentation>
+	</xs:annotation>
+	
+	<xs:import schemaLocation="skill-tracker-api-common.xsd" namespace="http://skill-tracker.com/skill-tracker-api-common"/>
+	<xs:import schemaLocation="skill-tracker-api-models.xsd" namespace="http://skill-tracker.com/skill-tracker-api-models"/>
+	
+	<xs:element name="SkillTrackerRequest" type="tns:skillTrackerRequest" />
+	<xs:complexType name="skillTrackerRequest">
+		<xs:sequence>
+			<xs:element name="skillTracker" type="tm:SkillTrackerType" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="SkillTrackerResponse" type="tns:skillTrackerResponse" />
+	<xs:complexType name="skillTrackerResponse">
+		<xs:sequence>
+			<xs:element name="skillTrackers" type="tm:SkillTrackerType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element ref="tc:response"></xs:element>
+			<xs:element ref="tc:pageable"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

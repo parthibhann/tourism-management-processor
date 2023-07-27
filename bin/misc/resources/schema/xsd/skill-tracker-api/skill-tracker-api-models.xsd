@@ -1,0 +1,45 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		   targetNamespace="http://skill-tracker.com/skill-tracker-api-models" 
+		   xmlns:tc="http://skill-tracker.com/skill-tracker-api-common" 
+		   xmlns:tns="http://skill-tracker.com/skill-tracker-api-models"
+		   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+  		   jaxb:version="2.1"
+		   elementFormDefault="qualified">
+		   
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+		      <jaxb:package name="com.skill.tracker.api.jaxb.types"/>
+		    </jaxb:schemaBindings>
+		</xs:appinfo>
+		<xs:documentation>
+			skill-tracker-api service request response details.
+		</xs:documentation>
+	</xs:annotation>
+		   
+	<xs:import schemaLocation="skill-tracker-api-common.xsd" namespace="http://skill-tracker.com/skill-tracker-api-common"/>
+
+	<xs:complexType name="SkillTrackerType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="associateId" type="xs:string"/>
+			<xs:element name="mobile" type="xs:string"/>
+			<xs:element name="email" type="xs:string"/>
+			<xs:element name="skillLeval" type="tns:SkillType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="nonTechnicalSkillLeval" type="tns:SkillType" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="updateTime" type="xs:dateTime"/>
+			<xs:element name="updatedBy" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:element name="skillTrackerType" type="tns:SkillTrackerType"></xs:element>
+    
+    <xs:element name="skill" type="tns:SkillType"></xs:element>
+	<xs:complexType name="SkillType">
+		<xs:sequence>
+			<xs:element name="skill" type="xs:string"></xs:element>
+			<xs:element name="level" type="xs:integer"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    
+</xs:schema>

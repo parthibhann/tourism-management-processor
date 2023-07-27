@@ -1,0 +1,6 @@
+branchId,branchName,associateId,website,contactNo,email,places,updateTime,updatedBy
+,Ram,CTSSK001,ram.com,9865742130,ram@manage.com,1-300|2-400|3-500|4-400|5-500,,processor
+,Ravi,CTSSK002,ravi.com,9865742130,ravi@manage.com,1-300|2-400|3-500|4-400|5-501,,processor
+,Kavi,CTSSK003,kavi.com,9865742130,kavi@manage.com,1-300|2-400|3-500|4-400|5-502,,processor
+,Mano,CTSSK004,mano.com,9865742130,mano@manage.com,1-300|2-400|3-500|4-400|5-503,,processor
+,Bavi,CTSSK005,bavi.com,9865742130,bavi@manage.com,1-300|2-400|3-500|4-400|5-504,,processor

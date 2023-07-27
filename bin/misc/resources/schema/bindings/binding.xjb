@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<jxb:bindings version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jxb:extensionBindingPrefixes="xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:annox="http://annox.dev.java.net" >
+    <jxb:globalBindings  typesafeEnumMaxMembers="200" localScoping="toplevel">
+      <xjc:simple />
+      <jxb:javaType xmlType="xs:integer" name="java.lang.Integer"/>
+    </jxb:globalBindings>
+</jxb:bindings>
