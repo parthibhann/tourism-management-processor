@@ -9,10 +9,13 @@ class TourismManagementProcessorApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+<<<<<<< HEAD
 	
 	@Test
 	void skillAdminServiceTest() {
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/parthibhann/tourism-management-processor.git
 
 }

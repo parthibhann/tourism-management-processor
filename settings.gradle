@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pluginManagement {
   repositories {
     maven { url 'https://repo.spring.io/milestone' }
@@ -5,3 +6,6 @@ pluginManagement {
   }
 }
 rootProject.name = 'tourism-management-processor'
+=======
+rootProject.name = 'tourism-management-processor'
+>>>>>>> branch 'master' of https://github.com/parthibhann/tourism-management-processor.git
