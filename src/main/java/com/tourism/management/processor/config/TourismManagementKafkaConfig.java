@@ -98,7 +98,7 @@ public class TourismManagementKafkaConfig {
 	    StringJsonMessageConverter converter = new StringJsonMessageConverter(objectMapper);
 	    DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
 	    typeMapper.setTypePrecedence(TypePrecedence.TYPE_ID);
-	    typeMapper.addTrustedPackages("com.tourism.management.processor.model");
+	    typeMapper.addTrustedPackages("com.tourism.management.processor.model.*");
 	    Map<String, Class<?>> mappings = new HashMap<>();
 	    mappings.put("TourismManagementRequest", TourismManagementRequest.class);
 	    mappings.put("TourismManagementResponse", TourismManagementResponse.class);

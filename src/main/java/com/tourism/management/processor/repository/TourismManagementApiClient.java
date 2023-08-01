@@ -10,7 +10,7 @@ import com.tourism.management.processor.model.TourismManagementResponse;
 @FeignClient(value = "${feign.client.tourism.management.api}", url = "${feign.client.url.tourism.management.api}")
 public interface TourismManagementApiClient {
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/tourism/api/v1/branch")
+	@RequestMapping(method = RequestMethod.POST, value = "/tourism/branch")
 	public TourismManagementResponse addNewPlace(TourismManagementRequest tourismManagementRequest);
 
 }
