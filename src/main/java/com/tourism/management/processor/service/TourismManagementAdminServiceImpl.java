@@ -51,7 +51,7 @@ public class TourismManagementAdminServiceImpl implements TourismManagementServi
 		switch (criteria) {
 
 		case "branchName":
-			branchDetails = tourismManagementRepository.findByBranchName(criteriaValue);
+			branchDetails = tourismManagementRepository.findByBranchNameRegex(criteriaValue);
 			break;
 		case "branchId":
 			branchDetails = tourismManagementRepository.findByBranchId(criteriaValue);
@@ -69,7 +69,7 @@ public class TourismManagementAdminServiceImpl implements TourismManagementServi
 
 		List<BranchDetail> branchDetailList = tourismManagementCsvTypeMapper.branchDetailsResToBranchDetail(branchDetails);		
 
-		return tourismManagementCsvTypeMapper.branchDetailToTourismManagementResponse(branchDetailList, "SUCCESS", "Place updated successfully", null);
+		return tourismManagementCsvTypeMapper.branchDetailToTourismManagementResponse(branchDetailList, "SUCCESS", "Document retrieved successfully", null);
 	}
 	
 }

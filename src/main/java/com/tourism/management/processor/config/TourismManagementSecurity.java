@@ -24,7 +24,7 @@ public class TourismManagementSecurity {
 	
 	@Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/tourism/load/csv", "/tourism/*/*/*");
+        return (web) -> web.ignoring().antMatchers("/tourism/load/csv", "/tourism/*/*");
     }
 
 }

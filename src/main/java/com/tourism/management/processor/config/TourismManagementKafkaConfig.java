@@ -29,6 +29,7 @@ import org.springframework.kafka.support.mapping.Jackson2JavaTypeMapper.TypePrec
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tourism.management.processor.model.BranchDetail;
 import com.tourism.management.processor.model.TourismManagementRequest;
 import com.tourism.management.processor.model.TourismManagementResponse;
 
@@ -71,7 +72,8 @@ public class TourismManagementKafkaConfig {
 		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		configProps.put(JsonSerializer.TYPE_MAPPINGS, "TourismManagementRequest:com.tourism.management.processor.model.TourismManagementRequest,"
-				+ "TourismManagementResponse:com.tourism.management.processor.model.TourismManagementResponse");
+				+ "TourismManagementResponse:com.tourism.management.processor.model.TourismManagementResponse"
+				+ "BranchDetail:com.tourism.management.processor.model.BranchDetail");
 		return new DefaultKafkaProducerFactory<>(configProps);
 	}
 
@@ -98,10 +100,11 @@ public class TourismManagementKafkaConfig {
 	    StringJsonMessageConverter converter = new StringJsonMessageConverter(objectMapper);
 	    DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
 	    typeMapper.setTypePrecedence(TypePrecedence.TYPE_ID);
-	    typeMapper.addTrustedPackages("com.tourism.management.processor.model.*");
+	    typeMapper.addTrustedPackages("com.tourism.management.processor.model","com.tourism.management.processor.model.BranchDetail.class");
 	    Map<String, Class<?>> mappings = new HashMap<>();
 	    mappings.put("TourismManagementRequest", TourismManagementRequest.class);
 	    mappings.put("TourismManagementResponse", TourismManagementResponse.class);
+	    mappings.put("BranchDetail", BranchDetail.class);
 	    typeMapper.setIdClassMapping(mappings);
 	    converter.setTypeMapper(typeMapper);
 	    return converter;
